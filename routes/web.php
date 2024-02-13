@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\OcrController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,6 @@ Route::group(['prefix' => "/"], function () {
     Route::get('/getdata/{id}',[DataController::class,'getData'])->name('getdata');
     Route::post('/delete',[DataController::class,'remove'])->name('delete');
 });
+
+Route::get('/image-reader', [OcrController::class, 'index'])->name('home');
+Route::post('/image-extraction',[OcrController::class,'imageExtraction'])->name('image.reader');
