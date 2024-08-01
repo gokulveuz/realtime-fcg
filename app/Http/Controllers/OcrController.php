@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use thiagoalessio\TesseractOCR\TesseractOCR;
 
 class OcrController extends Controller
@@ -16,6 +17,11 @@ class OcrController extends Controller
 
     public function imageExtraction(Request $request)
     {
+
+
+        Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
 
         if (isset($request->image)) {
             $text =  (new TesseractOCR($request->image))->run();
@@ -47,7 +53,6 @@ class OcrController extends Controller
             $email = $emails ?? null;
             $name = $names ?? null;
             $website = $websites ?? null;
-
         }
 
 
@@ -57,7 +62,5 @@ class OcrController extends Controller
             'website' => $website ?? null,
             'phone_number' => $phoneNumbers ?? null,
         ]);
-
-
     }
 }

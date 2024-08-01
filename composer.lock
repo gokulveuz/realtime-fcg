@@ -4,8 +4,72 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28b56df1bacecc3d84f7f61d84be7a73",
+    "content-hash": "f25b44b8fb7ac4ea5142ddc89a1f2d31",
     "packages": [
+        {
+            "name": "anhskohbo/no-captcha",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anhskohbo/no-captcha.git",
+                "reference": "6f129419a7f0d0a1ed9849fdaaed34e6d83a03cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/6f129419a7f0d0a1ed9849fdaaed34e6d83a03cc",
+                "reference": "6f129419a7f0d0a1ed9849fdaaed34e6d83a03cc",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2|^7.0",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=5.5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|^9.5.10|^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "NoCaptcha": "Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anhskohbo\\NoCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "anhskohbo",
+                    "email": "anhskohbo@gmail.com"
+                }
+            ],
+            "description": "No CAPTCHA reCAPTCHA For Laravel.",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel4",
+                "laravel5",
+                "laravel6",
+                "no-captcha",
+                "recaptcha"
+            ],
+            "support": {
+                "issues": "https://github.com/anhskohbo/no-captcha/issues",
+                "source": "https://github.com/anhskohbo/no-captcha/tree/3.6.0"
+            },
+            "time": "2024-03-13T02:22:17+00:00"
+        },
         {
             "name": "beste/clock",
             "version": "3.0.0",
@@ -2763,6 +2827,60 @@
                 }
             ],
             "time": "2023-10-17T14:13:20+00:00"
+        },
+        {
+            "name": "mailchimp/transactional",
+            "version": "1.0.59",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mailchimp/mailchimp-transactional-php.git",
+                "reference": "1783927027820dc1c624fd04abf5012a57f96feb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mailchimp/mailchimp-transactional-php/zipball/1783927027820dc1c624fd04abf5012a57f96feb",
+                "reference": "1783927027820dc1c624fd04abf5012a57f96feb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.4 || ^7.2",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.12",
+                "phpunit/phpunit": "^7",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MailchimpTransactional\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mailchimp",
+                    "homepage": "https://github.com/mailchimp/mailchimp-transactional-php"
+                }
+            ],
+            "homepage": "http://swagger.io",
+            "keywords": [
+                "api",
+                "php",
+                "sdk",
+                "swagger"
+            ],
+            "support": {
+                "source": "https://github.com/mailchimp/mailchimp-transactional-php/tree/v1.0.59"
+            },
+            "time": "2024-02-10T01:12:26+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6735,6 +6853,122 @@
             "time": "2023-11-30T11:38:21+00:00"
         },
         {
+            "name": "therobfonz/laravel-mandrill-driver",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/luisdalmolin/laravel-mandrill-driver.git",
+                "reference": "89373dd09457c1d2a2482cf0412fe027220e0057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luisdalmolin/laravel-mandrill-driver/zipball/89373dd09457c1d2a2482cf0412fe027220e0057",
+                "reference": "89373dd09457c1d2a2482cf0412fe027220e0057",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0",
+                "mailchimp/transactional": "^1.0",
+                "php": "^8.1",
+                "symfony/mailer": "^6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^v8.3.0",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelMandrill\\MandrillServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelMandrill\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Dalmolin",
+                    "email": "luis.nh@gmail.com"
+                },
+                {
+                    "name": "Rob Fonseca",
+                    "email": "robfonseca@gmail.com"
+                },
+                {
+                    "name": "Brandon Ferens",
+                    "email": "brandon@kirschbaumdevelopment.com"
+                }
+            ],
+            "description": "Mandrill Driver for Laravel 9+",
+            "keywords": [
+                "laravel",
+                "mandrill"
+            ],
+            "support": {
+                "issues": "https://github.com/luisdalmolin/laravel-mandrill-driver/issues",
+                "source": "https://github.com/luisdalmolin/laravel-mandrill-driver/tree/5.1.0"
+            },
+            "time": "2024-03-30T12:29:37+00:00"
+        },
+        {
+            "name": "thiagoalessio/tesseract_ocr",
+            "version": "2.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thiagoalessio/tesseract-ocr-for-php.git",
+                "reference": "232a8cb9d571992f9bd1e263f2f6909cf6c173a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thiagoalessio/tesseract-ocr-for-php/zipball/232a8cb9d571992f9bd1e263f2f6909cf6c173a1",
+                "reference": "232a8cb9d571992f9bd1e263f2f6909cf6c173a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/php-code-coverage": "^2.2.4 || ^9.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "thiagoalessio\\TesseractOCR\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thiagoalessio",
+                    "email": "thiagoalessio@me.com"
+                }
+            ],
+            "description": "A wrapper to work with Tesseract OCR inside PHP.",
+            "keywords": [
+                "OCR",
+                "Tesseract",
+                "text recognition"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/tesseract-ocr-for-php",
+                "issues": "https://github.com/thiagoalessio/tesseract-ocr-for-php/issues",
+                "source": "https://github.com/thiagoalessio/tesseract-ocr-for-php"
+            },
+            "time": "2023-10-05T21:14:48+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.6",
             "source": {
@@ -9452,5 +9686,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

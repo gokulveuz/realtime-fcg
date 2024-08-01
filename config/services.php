@@ -40,5 +40,13 @@ return [
         'appId' => env('FIREBASE_APP_ID'),
         'measurementId' => env('FIREBASE_MEASUREMENT_ID'),
 
-    ]
+    ],
+    'mandrill' => [
+        'secret' => env('MANDRILL_API_KEY'),
+    ],
+
+    'recaptcha' => [
+        'key' => env('GOOGLE_RECAPTCHA_KEY'),
+        'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
+    ],
 ];

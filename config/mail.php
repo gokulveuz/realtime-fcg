@@ -86,6 +86,9 @@ return [
                 'log',
             ],
         ],
+        'mandrill' => [
+            'transport' => 'mandrill',
+        ],
     ],
 
     /*
