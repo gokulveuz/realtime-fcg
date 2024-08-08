@@ -69,73 +69,40 @@ class CaptchaController extends Controller
 
         $response = $this->verifyResponse($recaptcha);
 
-        dd($response);
         if (isset($response['success']) and $response['success'] != true) {
-            echo "An Error Occured and Error code is :" . $response['error-codes'];
-        } else {
-            echo "Correct Recaptcha";
+            return response()->json(['success' => false, 'message' => "recaptcha verificaion failed"]);
         }
 
 
-        try {
+        return response()->json(['success' => true, 'message' => "Success"]);
 
-            $message = [
-                "from_email" => "websoulgokulks@gmail.com",
-                "subject" => "Hello world",
-                "text" => "Welcome to Mailchimp Transactional!",
-                "to" => [
-                    [
-                        "email" => "gokulveuz@gmail.com",
-                        "type" => "to"
-                    ]
-                ]
-            ];
+        // try {
 
-            $mailchimp = new ApiClient();
-            $mailchimp->setApiKey('md-Fch-T0w_pB-Y0yV0VAgE2g');
-            $response = $mailchimp->messages->send(["message" => $message]);
+        //     $message = [
+        //         "from_email" => "websoulgokulks@gmail.com",
+        //         "subject" => "Hello world",
+        //         "text" => "Welcome to Mailchimp Transactional!",
+        //         "to" => [
+        //             [
+        //                 "email" => "gokulveuz@gmail.com",
+        //                 "type" => "to"
+        //             ]
+        //         ]
+        //     ];
 
-            dd($response);
-        } catch (Exception $e) {
-            dd($e);
-            echo 'Error: ', $e->getMessage(), "\n";
-        }
+        //     $mailchimp = new ApiClient();
+        //     $mailchimp->setApiKey('md-Fch-T0w_pB-Y0yV0VAgE2g');
+        //     $response = $mailchimp->messages->send(["message" => $message]);
+
+        //     return response()->json()
 
 
-
-
-        try {
-
-
-
-
-            dd(343);
-            // $client = new Client();
-
-            // // Example request
-            // $response = $client->post('https://api.example.com/send-mail', [
-            //     'json' => [
-            //         'to' => 'recipient@example.com',
-            //         'subject' => 'Test Email',
-            //         'body' => 'This is a test email.',
-            //     ],
-            // ]);
-
-
-            // Mail::to('gokulveuz@gmail.com')->send(new SampleMail());
-        } catch (Exception $e) {
-            dd($e);
-        }
-
+        // } catch (Exception $e) {
+        //     dd($e);
+        //     echo 'Error: ', $e->getMessage(), "\n";
+        // }
 
         return redirect()->back();
-
-
-
-
-
-
-        dd($recaptcha);
     }
 
     public function verifyResponse($recaptcha)
@@ -162,6 +129,7 @@ class CaptchaController extends Controller
         // get reCAPTCHA server response
         $responses = json_decode($getResponse, true);
 
+        \Log::debug($responses);
 
         if (isset($responses['success']) and $responses['success'] == true) {
             $status = true;
