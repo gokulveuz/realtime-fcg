@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attribute;
 use App\Models\Option;
 use App\Models\OptionValue;
 use App\Models\Product;
@@ -15,7 +16,7 @@ class ProController extends Controller
     {
         $products  = Product::latest()->get();
         $options = Option::latest()->get();
-        return view('prod', compact('products','options'));
+        return view('prod', compact('products', 'options'));
     }
 
     public function addPro(Request $request)
@@ -89,7 +90,7 @@ class ProController extends Controller
 
     public function getSku(Request $request, $productId)
     {
-       
+
         $product = Product::findOrFail($productId);
 
         $sku = $product->skus()
@@ -142,5 +143,23 @@ class ProController extends Controller
         }
 
         return redirect()->route('products.index')->with('success', 'Product added successfully!');
+    }
+
+    public function getAttribute()
+    {
+        dd(34);
+        $search_value = request()->search_value;
+        $attribute = Attribute::when($search_value, function ($q) use ($search_value) {
+            $q->where('name', 'LIKE', '%' . $search_value . '%');
+        })->get();
+
+        dd($attribute);
+
+        $view = view('attributeview', [
+            'attribute' => $attribute,
+            'search_value' => $search_value
+        ]);
+
+        return response()->json(['view' => $view]);
     }
 }

@@ -41,7 +41,10 @@ Route::post('/mailchimp', [MailChimpController::class, 'post'])->name('mailchimp
 Route::get('/callback', [MailChimpController::class, 'callback'])->name('payment.callback');
 
 
-Route::get('/product',[ProController::class,'index']);
-Route::get('/{id}',[ProController::class,'show'])->name('product.show');
-Route::post('/pro',[ProController::class,'addPro'])->name('products.store');
+Route::get('/product', [ProController::class, 'index']);
+Route::get('/{id}', [ProController::class, 'show'])->name('product.show');
+Route::post('/pro', [ProController::class, 'addPro'])->name('products.store');
 Route::post('/product/{product}/sku', [ProController::class, 'getSku']);
+
+
+Route::get('/getattribute', [ProController::class, 'getAttribute'])->name('get.attribute');
