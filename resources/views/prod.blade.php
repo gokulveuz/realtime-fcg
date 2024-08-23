@@ -12,9 +12,9 @@
     @foreach ($products as $product)
         <a href="{{ route('product.show', $product->id) }}">{{ $product->product_name }}</a>
     @endforeach
-
+{{-- 
     <form id="productForm" action="{{ route('products.store') }}" method="POST">
-        @csrf
+        @csrf --}}
 
         <div>
             <label for="">search options</label>
@@ -47,7 +47,7 @@
 
         <button type="button" id="addOption">Add Another Option</button>
         <button type="submit">Submit Product</button> --}}
-    </form>
+    {{-- </form> --}}
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -67,6 +67,9 @@
         }
 
         function performAjax() {
+
+            let searchValue = $("#search_tag")
+
             $.ajax({
                 type: 'GET',
                 url: "{{ route('get.attribute') }}",

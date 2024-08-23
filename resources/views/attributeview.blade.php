@@ -1,7 +1,7 @@
 @if (count($attribute) > 0)
     <ul>
         @foreach ($attribute as $attr)
-            <li>{{ $attr->name }}</li>
+            <li>{{ $attr->name ?? "" }}</li>
         @endforeach
     </ul>
 @else

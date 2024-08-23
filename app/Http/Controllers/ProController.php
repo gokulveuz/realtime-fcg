@@ -147,18 +147,17 @@ class ProController extends Controller
 
     public function getAttribute()
     {
-        dd(34);
         $search_value = request()->search_value;
         $attribute = Attribute::when($search_value, function ($q) use ($search_value) {
             $q->where('name', 'LIKE', '%' . $search_value . '%');
         })->get();
 
-        dd($attribute);
+  
 
         $view = view('attributeview', [
             'attribute' => $attribute,
             'search_value' => $search_value
-        ]);
+        ])->render();
 
         return response()->json(['view' => $view]);
     }

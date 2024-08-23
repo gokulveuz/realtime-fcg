@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Livewire::class]);
 
+
+Route::get('/getattribute', [ProController::class, 'getAttribute'])->name('get.attribute');
+
 Route::get('/', [OcrController::class, 'index'])->name('home');
 Route::post('/image-extraction', [OcrController::class, 'imageExtraction'])->name('image.reader');
 
@@ -47,4 +50,3 @@ Route::post('/pro', [ProController::class, 'addPro'])->name('products.store');
 Route::post('/product/{product}/sku', [ProController::class, 'getSku']);
 
 
-Route::get('/getattribute', [ProController::class, 'getAttribute'])->name('get.attribute');
