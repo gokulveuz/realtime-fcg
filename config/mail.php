@@ -89,6 +89,10 @@ return [
         'mandrill' => [
             'transport' => 'mandrill',
         ],
+        'mailchimp' => [
+            'transport' => 'mailchimp',
+            'api_key' => env('MAILCHIMP_API_KEY'),
+        ],
     ],
 
     /*

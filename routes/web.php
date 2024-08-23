@@ -3,6 +3,8 @@
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\OcrController;
 use App\Http\Controllers\CaptchaController;
+use App\Http\Controllers\MailChimpController;
+use App\Http\Controllers\ProController;
 use App\View\Components\Livewire;
 use Illuminate\Support\Facades\Route;
 
@@ -25,12 +27,21 @@ use Illuminate\Support\Facades\Route;
 //     Route::post('/delete',[DataController::class,'remove'])->name('delete');
 // });
 
-Route::get('/',[Livewire::class]);
+Route::get('/', [Livewire::class]);
 
 Route::get('/', [OcrController::class, 'index'])->name('home');
 Route::post('/image-extraction', [OcrController::class, 'imageExtraction'])->name('image.reader');
 
 Route::get("/captcha", [CaptchaController::class, 'index']);
-Route::post('/capt',[CaptchaController::class,'post'])->name("post");
+Route::post('/capt', [CaptchaController::class, 'post'])->name("post");
+
+Route::get('/mailchimp', [MailChimpController::class, 'index']);
+Route::post('/mailchimp', [MailChimpController::class, 'post'])->name('mailchimp');
+
+Route::get('/callback', [MailChimpController::class, 'callback'])->name('payment.callback');
 
 
+Route::get('/product',[ProController::class,'index']);
+Route::get('/{id}',[ProController::class,'show'])->name('product.show');
+Route::post('/pro',[ProController::class,'addPro'])->name('products.store');
+Route::post('/product/{product}/sku', [ProController::class, 'getSku']);

@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "mailchimp/transactional": "^1.0",
-        "therobfonz/laravel-mandrill-driver": "^5.1",
+        "paytabscom/laravel_paytabs": "^1.7",
+        "therobfonz/laravel-mandrill-driver": "^5.0",
         "thiagoalessio/tesseract_ocr": "^2.13"
     },
     "require-dev": {

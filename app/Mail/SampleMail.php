@@ -16,9 +16,12 @@ class SampleMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+
+    protected $data;
+
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -38,6 +41,9 @@ class SampleMail extends Mailable
     {
         return new Content(
             view: 'email',
+            with: [
+                'data' => $this->data
+            ],
         );
     }
 
