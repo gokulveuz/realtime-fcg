@@ -12,20 +12,20 @@
     @foreach ($products as $product)
         <a href="{{ route('product.show', $product->id) }}">{{ $product->product_name }}</a>
     @endforeach
-{{-- 
+    {{-- 
     <form id="productForm" action="{{ route('products.store') }}" method="POST">
         @csrf --}}
 
-        <div>
-            <label for="">search options</label>
-            <input type="text" name="search_tag" id="search_tag">
-            <div id="appendData">
+    <div>
+        <label for="">search options</label>
+        <input type="text" name="search_tag" id="search_tag">
+        <div id="appendData">
 
-            </div>
         </div>
+    </div>
 
 
-        {{-- <div>
+    {{-- <div>
             <label for="product_name">Product Name:</label>
             <input type="text" id="product_name" name="product_name" required>
         </div>
@@ -113,9 +113,9 @@
             $(document).on('click', '.addValue', function() {
                 let valuesContainer = $(this).closest('.valuesContainer');
                 let index = valuesContainer.closest('.option-group').data('index');
-                valuesContainer.append(`
-                    <input type="text" name="options[${index}][values][]" placeholder="Value" required>
-                `);
+                valuesContainer.append(
+                    `<input type="text" name="options[${index}][values][]" placeholder="Value" required>`
+                );
             });
 
             $(document).on('click', '.removeOption', function() {

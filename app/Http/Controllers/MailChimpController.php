@@ -66,51 +66,6 @@ class MailChimpController extends Controller
 
         //     dd($pay);
 
-
-
-
-
-        // $response = Http::withHeaders([
-        //     'Authorization' => env('PAYTABS_SERVER_KEY'),
-        //     'Content-Type' => 'application/json',
-        // ])->post(env('PAYTABS_BASE_URL') . '/payment/request', [  
-        //     'profile_id' => env('PAYTABS_PROFILE_ID'),
-        //     'tran_type' => 'sale',
-        //     'tran_class' => 'ecom',
-        //     'cart_id' => '4244b9fd-c7e9-4f16-8d3c-4fe7bf6c48ca',
-        //     'cart_description' => 'Dummy Order 35925502061445345',
-        //     'cart_currency' => 'INR',
-        //     'cart_amount' => 46.17,
-        //     // 'callback' => 'http://127.0.0.1:8001/callback',
-        //     'return' => 'http://127.0.0.1:8001/callback',
-        //     'customer_details' => [
-        //         'name' => 'first last',
-        //         'email' => 'email@domain.com',
-        //         'phone' => '0522222222',
-        //         'street1' => 'address street',
-        //         'city' => 'dubai',
-        //         'state' => 'du',
-        //         'country' => 'AE',
-        //         'zip' => '12345'
-        //     ],
-        //     'shipping_details' => [
-        //         'name' => 'name1 last1',
-        //         'email' => 'email1@domain.com',
-        //         'phone' => '971555555555',
-        //         'street1' => 'street2',
-        //         'city' => 'dubai',
-        //         'state' => 'dubai',
-        //         'country' => 'AE',
-        //         'zip' => '54321'
-        //     ],
-        // ]);
-
-        
-
-        // $result = $response->json();
-
-        // dd($result);
-
         // if ($response->successful()) {
         //     return redirect($result['redirect_url']);
         // } else {
@@ -164,7 +119,7 @@ class MailChimpController extends Controller
     {
 
         try {
-          
+
 
             $mailchimp = new ApiClient();
             $mailchimp->setApiKey($this->apiKey);
@@ -186,7 +141,7 @@ class MailChimpController extends Controller
                 'metadata' => array('website' => '127.0.0.1'),
             ]]);
 
-            dd($response);
+            // dd($response);
 
 
             // $url = 'https://mandrillapp.com/api/1.0/messages/send.json';
@@ -225,6 +180,5 @@ class MailChimpController extends Controller
 
 
         dd($data);
-
     }
 }
